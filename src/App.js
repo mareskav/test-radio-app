@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Navbar } from 'react-bootstrap';
+import { css, cx } from 'emotion';
+import TagList from './TagList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const NavBarClass = cx(
+  'NavBar',
+  css`
+    margin-bottom: 20px;
+    box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.7);
+  `,
+);
+
+const App = () => (
+  <div className="App">
+    <Navbar bg="primary" variant="dark" className={NavBarClass}>
+      <Navbar.Brand variant="light">Test Radio App</Navbar.Brand>
+    </Navbar>
+    <TagList />
+  </div>
+);
 
 export default App;
