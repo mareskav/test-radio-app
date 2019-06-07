@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import { css, cx } from 'emotion';
 
 const TagListItemClass = cx(
@@ -22,19 +23,24 @@ const TagListItemClass = cx(
   `,
 );
 
-const TagList = () => {
-  const query = window.location.hash.split('tags=')[1];
-  const tagsArray = query ? query.split(',') : [];
+const TagList = ({ tagsList, onDelete }) => {
+  const [list, setList] = React.useState(tagsList);
 
-  const listItems = tagsArray.map(tag => (
-    <li className={TagListItemClass} key={tag}>
-      {tag}
-    </li>
-  ));
+  useEffect(() => {
+    setList(tagsList);
+  }, [tagsList]);
 
   return (
     <div>
-      <ul className="list-group">{listItems}</ul>
+      <ul>
+        {list.map(tag => (
+          <li className={TagListItemClass} key={tag}>
+            <Button variant="light" onClick={onDelete(tag)}>
+              {tag}
+            </Button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
