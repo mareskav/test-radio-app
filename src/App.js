@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Navbar, Form, FormControl, Button,
-} from 'react-bootstrap';
+import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { css, cx } from 'emotion';
 import TagList from './TagList';
 
@@ -10,7 +8,7 @@ const NavBarClass = cx(
   css`
     margin-bottom: 20px;
     box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.7);
-  `,
+  `
 );
 
 const query = window.location.hash.split('tags=')[1];
@@ -23,15 +21,21 @@ const App = () => (
   </div>
 );
 
+export const sumIt = (x, y) => {
+  return x + y;
+};
+
+console.log(sumIt(1, 2));
+
 const TestApp = () => {
   const [value, setValue] = React.useState('');
   const [list, setList] = React.useState(tagsList);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setValue(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     if (value) {
       const updatedList = list.concat(value);
       setList(updatedList);
@@ -41,7 +45,7 @@ const TestApp = () => {
     event.preventDefault();
   };
 
-  const handleDeleteTag = tag => (event) => {
+  const handleDeleteTag = tag => event => {
     event.preventDefault();
     const updatedList = list.filter(item => item !== tag);
     setList(updatedList);

@@ -7,7 +7,6 @@
     "jest": true,
     "mocha": true
   },
-  "extends": "airbnb",
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -22,6 +21,9 @@
   "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "arrow-parens": [2, "as-needed"],
+    "comma-dangle": ["error", "never"],
+    "object-curly-newline": ["error", {"multiline": true}]
   }
 }

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { css, cx } from 'emotion';
+import PropTypes from 'prop-types';
 
 const TagListItemClass = cx(
   'TabList-item',
@@ -20,10 +21,11 @@ const TagListItemClass = cx(
       border-radius: 7.5px;
       background-color: black;
     }
-  `,
+  `
 );
 
-const TagList = ({ tagsList, onDelete }) => {
+const TagList = props => {
+  const { tagsList, onDelete } = props;
   const [list, setList] = React.useState(tagsList);
 
   useEffect(() => {
@@ -46,3 +48,8 @@ const TagList = ({ tagsList, onDelete }) => {
 };
 
 export default TagList;
+
+TagList.propTypes = {
+  tagsList: PropTypes.node.isRequired,
+  onDelete: PropTypes.func.isRequired
+};
