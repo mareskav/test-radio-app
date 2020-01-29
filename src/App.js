@@ -20,8 +20,6 @@ const tagsList = tagsArray.map(item => item);
 const App = () => (
   <div className="App">
     <TestApp />
-    <TestApp />
-    <TestApp />
   </div>
 );
 
@@ -53,7 +51,7 @@ const TestApp = () => {
   return (
     <div className="TestApp">
       <Navbar bg="primary" variant="dark" className={NavBarClass}>
-        <Navbar.Brand variant="light"> Test Radio App </Navbar.Brand>
+        <Navbar.Brand variant="light"> Test App </Navbar.Brand>
         <Form inline onSubmit={handleSubmit}>
           <FormControl
             value={value}
