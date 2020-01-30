@@ -21,11 +21,11 @@ const App = () => (
   </div>
 );
 
-export const sumIt = (x, y) => {
+export const sumFunction = (x, y) => {
   return x + y;
 };
 
-console.log(sumIt(1, 2));
+console.log(sumFunction(1, 2));
 
 const TestApp = () => {
   const [value, setValue] = React.useState('');
