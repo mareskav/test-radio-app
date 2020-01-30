@@ -50,6 +50,6 @@ const TagList = props => {
 export default TagList;
 
 TagList.propTypes = {
-  tagsList: PropTypes.node.isRequired,
+  tagsList: PropTypes.array.isRequired,
   onDelete: PropTypes.func.isRequired
 };
